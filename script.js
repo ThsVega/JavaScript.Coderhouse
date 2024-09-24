@@ -41,8 +41,8 @@ function ordenarproductos(){
     }
 }
 
-let botondecomprar = document.getElementById("botoncomprar")
-botondecomprar.addEventListener("click", ordenarproductos)
+let botondeconsprecios = document.getElementById("consultarprecios")
+botondeconsprecios.addEventListener("click", ordenarproductos)
 
 /*let div1 = document.createElement("div")
 
@@ -57,18 +57,6 @@ parrafoproductos.innerHTML = `<p> ${cafe1.nombre} tiene un costo de $${cafe1.pre
                       ${cafe2.nombre} tiene un costo de $${cafe2.precio}.<br>
                       ${galleta1.nombre} tiene un costo de $${galleta1.precio}.<p>`
 
-let btncomprarcafe1 = document.getElementById("comprarcafe1")
-btncomprarcafe1.addEventListener("click", comprarcafechimi)
-
-let comprarcafe2 = document.getElementById("comprarcafe2")
-comprarcafe2.addEventListener("click", comprarcafekitty)
-
-let comprargalleta1 = document.getElementById("comprargalle1")
-comprargalleta1.addEventListener("click", comprargalletagaara)
-
-let VaciarCarrito1= document.getElementById("VaciarCarrito")
-VaciarCarrito1.addEventListener("click", VaciarCarro)
-
 function comprarcafechimi (){
     localStorage.setItem("cafe chimi", 1500)
 }
@@ -81,3 +69,15 @@ function comprargalletagaara (){
 function VaciarCarro (){
     localStorage.clear()
 }
+
+let btncomprarcafe1 = document.getElementById("comprarcafe1")
+btncomprarcafe1.addEventListener("click", comprarcafechimi)
+
+let comprarcafe2 = document.getElementById("comprarcafe2")
+comprarcafe2.addEventListener("click", comprarcafekitty)
+
+let comprargalleta1 = document.getElementById("comprargalleta1")
+comprargalleta1.addEventListener("click", comprargalletagaara)
+
+let VaciarCarrito1= document.getElementById("VaciarCarrito")
+VaciarCarrito1.addEventListener("click", VaciarCarro)
