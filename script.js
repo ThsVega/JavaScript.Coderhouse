@@ -1,21 +1,3 @@
-/*
-const productos = [
-    {nombre: "Cafe chimi", precio: 1500 },
-    {nombre: "galleta gaara", precio: 1000 },
-    {nombre: "Cafe kitty", precio: 1700 }
-]
-
-const caferecomendado = productos.filter(el => el.producto.includes(cafe))
-
-const productosprecios = productos.forEach(producto => {
-    console.log(`${porducto.nombre} actualmente cuesta $${producto.precio}`)
-})
-
-const preciossep2024 = productos.map( (producto)=>{return producto*1.5})
-
-console.log(preciossep2024)
-*/
-
 const productos = function (nombre, precio, stock){
     this.nombre = nombre
     this.precio = precio
@@ -43,14 +25,6 @@ function ordenarproductos(){
 
 let botondeconsprecios = document.getElementById("consultarprecios")
 botondeconsprecios.addEventListener("click", ordenarproductos)
-
-/*let div1 = document.createElement("div")
-
-div1.innerHTML = `<p> ${cafe1.nombre} tiene un costo de $${cafe1.precio}.
-                      ${cafe2.nombre} tiene un costo de $${cafe2.precio}.
-                      ${galleta1.nombre} tiene un costo de $${galleta1.precio}.<p>`
-
-document.body.appendChild(div1)*/
 
 let parrafoproductos = document.getElementById("parrafo-productos")
 parrafoproductos.innerHTML = `<p> ${cafe1.nombre} tiene un costo de $${cafe1.precio}. <br>
