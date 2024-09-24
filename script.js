@@ -1,47 +1,83 @@
-/*function sumar(num1, num2){
-    let resultado = num1+num2
-    alert(resultado)
+/*
+const productos = [
+    {nombre: "Cafe chimi", precio: 1500 },
+    {nombre: "galleta gaara", precio: 1000 },
+    {nombre: "Cafe kitty", precio: 1700 }
+]
+
+const caferecomendado = productos.filter(el => el.producto.includes(cafe))
+
+const productosprecios = productos.forEach(producto => {
+    console.log(`${porducto.nombre} actualmente cuesta $${producto.precio}`)
+})
+
+const preciossep2024 = productos.map( (producto)=>{return producto*1.5})
+
+console.log(preciossep2024)
+*/
+
+const productos = function (nombre, precio, stock){
+    this.nombre = nombre
+    this.precio = precio
+    this.stock = stock
 }
-sumar(245,567)*/
+let cafe1 = new productos ("cafe chimi", 1500, 15)
+let cafe2 = new productos ("cafe kitty", 1700, 19)
+let galleta1 = new productos ("galleta gaara", 2000, 20)
 
-var admin = "Thomas"
+let catalogo=[cafe1, cafe2, galleta1]
 
-let NombreUsuario = prompt("Ingresar nombre de usuario")
-if (NombreUsuario == admin){
-    alert("hola admin");
-}
-else if (NombreUsuario == ""){
-    alert("Nombre de Usuario Incorrecto")
-}
-else{
-    alert("Hola " + NombreUsuario)
-}
+localStorage.setItem("cafe1", cafe1)
+localStorage.setItem("cafe2", cafe2)
+localStorage.setItem("galleta1", galleta1)
 
-
-let NumComision = prompt("Ingrese el numero de Comisión")
-while (NumComision != "64785"){
-    alert ("El numero de Comisión ingresado no es correcto");
-    NumComision = prompt ("Vuelva a intentarlo por favor")
+function ordenarproductos(){
+    let productousuario = prompt("Que vas a llevar hoy?").trim().toLowerCase()
+    let carrito = catalogo.filter((productos)=>productos.nombre.toLowerCase().includes(productousuario))
+    if(carrito.length>0){
+        console.table(carrito)
+    }else{
+        alert("no existe tal producto")
+    }
 }
 
+let botondecomprar = document.getElementById("botoncomprar")
+botondecomprar.addEventListener("click", ordenarproductos)
 
-let bienvenida = () => "Buenas, les damos la bienvenida a la Consola de este Entregable";
-console.log (bienvenida());
+/*let div1 = document.createElement("div")
 
+div1.innerHTML = `<p> ${cafe1.nombre} tiene un costo de $${cafe1.precio}.
+                      ${cafe2.nombre} tiene un costo de $${cafe2.precio}.
+                      ${galleta1.nombre} tiene un costo de $${galleta1.precio}.<p>`
 
-function multiplicar(numero1, numero2) {
-    resultado = numero1 * numero2;
+document.body.appendChild(div1)*/
+
+let parrafoproductos = document.getElementById("parrafo-productos")
+parrafoproductos.innerHTML = `<p> ${cafe1.nombre} tiene un costo de $${cafe1.precio}. <br>
+                      ${cafe2.nombre} tiene un costo de $${cafe2.precio}.<br>
+                      ${galleta1.nombre} tiene un costo de $${galleta1.precio}.<p>`
+
+let btncomprarcafe1 = document.getElementById("comprarcafe1")
+btncomprarcafe1.addEventListener("click", comprarcafechimi)
+
+let comprarcafe2 = document.getElementById("comprarcafe2")
+comprarcafe2.addEventListener("click", comprarcafekitty)
+
+let comprargalleta1 = document.getElementById("comprargalle1")
+comprargalleta1.addEventListener("click", comprargalletagaara)
+
+let VaciarCarrito1= document.getElementById("VaciarCarrito")
+VaciarCarrito1.addEventListener("click", VaciarCarro)
+
+function comprarcafechimi (){
+    localStorage.setItem("cafe chimi", 1500)
 }
-multiplicar (12957, 5);
-console.log(resultado);
-
-
-let nacimiento = prompt("En que año naciste?")
-let edadactual = "2024" - nacimiento
-alert ("Actualmente tenes " + edadactual + " años");
-
-
-const presentes = ["Thomas", "Sofia", "Marcelina", "Yoana"];
-presentes.push ("Maxi")
-presentes.push ("Gastón")
-console.log("Hoy en la casa estan presentes, " + presentes)
+function comprarcafekitty (){
+    localStorage.setItem("cafe kitty", 1700)
+}
+function comprargalletagaara (){
+    localStorage.setItem("galleta gaara", 2000)
+}
+function VaciarCarro (){
+    localStorage.clear()
+}
