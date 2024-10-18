@@ -14,12 +14,22 @@ localStorage.setItem("cafe2", cafe2)
 localStorage.setItem("galleta1", galleta1)
 
 function ordenarproductos(){
-    let productousuario = prompt("Que vas a llevar hoy?").trim().toLowerCase()
+    let productousuario = Swal.fire({
+        title:"Que Precio quierers Consultar?",
+        input: 'text',
+        }).trim().toLowerCase()
     let carrito = catalogo.filter((productos)=>productos.nombre.toLowerCase().includes(productousuario))
     if(carrito.length>0){
-        console.table(carrito)
+
+        Swal.fire({
+            title: 'Catalogo',
+            html: JSON.stringify(carrito),
+            showCloseButton: true,
+            focusConfirm: false,
+            confirmButtonText: 'Cerrar',
+        });
     }else{
-        alert("no existe tal producto")
+        swal.fire("no existe tal producto")
     }
 }
 
@@ -30,19 +40,6 @@ let parrafoproductos = document.getElementById("parrafo-productos")
 parrafoproductos.innerHTML = `<p> ${cafe1.nombre} tiene un costo de $${cafe1.precio}. <br>
                       ${cafe2.nombre} tiene un costo de $${cafe2.precio}.<br>
                       ${galleta1.nombre} tiene un costo de $${galleta1.precio}.<p>`
-
-function comprarcafechimi (){
-    localStorage.setItem("cafe chimi", 1500)
-}
-function comprarcafekitty (){
-    localStorage.setItem("cafe kitty", 1700)
-}
-function comprargalletagaara (){
-    localStorage.setItem("galleta gaara", 2000)
-}
-function VaciarCarro (){
-    localStorage.clear()
-}
 
 let btncomprarcafe1 = document.getElementById("comprarcafe1")
 btncomprarcafe1.addEventListener("click", comprarcafechimi)
@@ -55,3 +52,65 @@ comprargalleta1.addEventListener("click", comprargalletagaara)
 
 let VaciarCarrito1= document.getElementById("VaciarCarrito")
 VaciarCarrito1.addEventListener("click", VaciarCarro)
+
+let timerInterval;
+Swal.fire({
+  title: "Bienvenidos a Cafeteria Chimi",
+  html: "Espero tengan una hermosa experiencia ^^",
+  timer: 3000,
+});
+
+
+function comprarcafechimi (){
+    localStorage.setItem("cafe chimi", 1500)
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Añadido al Carrito",
+        showConfirmButton: false,
+        timer: 1500
+      });
+}
+function comprarcafekitty (){
+    localStorage.setItem("cafe kitty", 1700)
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Añadido al Carrito",
+        showConfirmButton: false,
+        timer: 1500
+      });
+}
+function comprargalletagaara (){
+    localStorage.setItem("galleta gaara", 2000)
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Añadido al Carrito",
+        showConfirmButton: false,
+        timer: 1500
+      });
+}
+function VaciarCarro (){
+    localStorage.clear()
+}
+
+const now = DateTime.now();
+
+function mostrarCarrito() {
+    const carritoDiv = document.getElementById('carrito');
+    carritoDiv.innerHTML = '';
+
+    carrito.forEach(item => {
+        carritoDiv.innerHTML += `<p>Producto ID: ${item.id}, Cantidad: ${item.cantidad}</p>`;
+    });
+}
+
+document.getElementById('finalizar').onclick = function() {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Compra Finalizada",
+        showConfirmButton: false,
+      })
+    }
