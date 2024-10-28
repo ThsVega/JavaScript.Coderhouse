@@ -21,7 +21,7 @@ let medialuna2 = new productos("medialuna salamance", 4500, 7, "assets/medialuna
 let catalogo = [cafe1, cafe2, cafe3, cafe4, galleta1, galleta2, galleta3, galleta4, waffle1, medialuna1, medialuna2];
 let carrito = [];
 
-let parrafoproductos = document.getElementById("listadeproductos");
+let parrafoproductos = document.getElementById("listadeproductos"); 
 let listacarrito = document.getElementById("carrito");
 let preciototal = document.getElementById("total");
 let VaciarCarrito1 = document.getElementById("VaciarCarrito");
