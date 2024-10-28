@@ -15,7 +15,7 @@ let galleta2 = new productos("galleta kitty", 1900, 50, "assets/galleta-kitty.pn
 let galleta3 = new productos("galleta gaara", 2500, 54, "assets/galletitas-gaara-producto.jpg");
 let galleta4 = new productos("galleta billie", 3000, 26, "assets/galleta-billie.png");
 let waffle1 = new productos("waffle milenium falcon", 5000, 34, "assets/waffle-milenium-falcon.png");
-let medialuna1 = new productos("medialuna slowpoke", 4000, 14, "assets/medialuna-slowpoke.png");
+let medialuna1 = new productos("medialuna slowpoke", 4000, 1, "assets/medialuna-slowpoke.png");
 let medialuna2 = new productos("medialuna salamance", 4500, 7, "assets/medialuna-salamance.png");
 
 let catalogo = [cafe1, cafe2, cafe3, cafe4, galleta1, galleta2, galleta3, galleta4, waffle1, medialuna1, medialuna2];
